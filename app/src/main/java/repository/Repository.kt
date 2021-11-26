@@ -4,6 +4,7 @@ import android.util.Log
 import api.RetrofitInstance
 import models.User
 import retrofit2.Call
+import retrofit2.Response
 
 class Repository {
 
@@ -11,8 +12,17 @@ class Repository {
         return RetrofitInstance.apiService.getAllUsers();
     }
 
-    suspend fun createUser(user: User): Call<Unit> {
+    suspend fun createUser(user: User): Response<Unit> {
         Log.d("Repository-Debug","Lanzando create user en Repository")
         return RetrofitInstance.apiService.createUser(user)
+    }
+
+    suspend fun editUser(user: User): Response<Unit> {
+        Log.d("Repository-Debug","Lanzando create user en Repository")
+        return RetrofitInstance.apiService.editUser(user)
+    }
+
+    suspend fun getSingleUser(id: Int): User {
+        return RetrofitInstance.apiService.getUser(id)
     }
 }

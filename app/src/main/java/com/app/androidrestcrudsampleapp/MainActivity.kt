@@ -37,17 +37,25 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        var u = User(0,"pepe", Date())
+        var u = User(0,"lolo", Date())
         Log.d("User", u.toString())
         userViewModel.createUser(u)
+        userViewModel.getSingleUser(4733)
+        userViewModel.editUser(User(4733,"LoloCambiado",Date()))
 
-
-       /* userViewModel.createResponse.observe(this, { response ->
-            Log.d("ResponseCreate","Observando")
+        userViewModel.createResponse.observe(this, { response ->
+            Log.d("ResponseCreate",response.toString())
         })
-       */
+
+        userViewModel.singleUser.observe(this, {response ->
+            Log.d("ResponseEdit", response.toString())
+        })
+
+        userViewModel.singleUser.observe(this, { response ->
+            Log.d("GetUser", response.toString())
+        })
         userViewModel.usersList.observe(this, Observer { response ->
-            //Log.d("Response", response.toString())
+            Log.d("Response", response.toString())
         })
 
 

@@ -15,7 +15,11 @@ interface APIService {
     @POST("/api/User")
     suspend fun createUser(
         @Body user : User
-    ): Call<Unit>
+    ): Response<Unit>
 
+    @PUT("/api/User/{id}")
+    suspend fun editUser(
+        @Body user: User
+    ): Response<Unit>
 
 }
