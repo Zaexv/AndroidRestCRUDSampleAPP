@@ -9,12 +9,16 @@ import models.User
 import repository.Repository
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class UserViewModel(private val repository: Repository): ViewModel() {
 
     var usersList: MutableLiveData<List<User>> = MutableLiveData()
     var singleUser: MutableLiveData<User> = MutableLiveData()
     var createResponse: MutableLiveData<Response<Unit>> = MutableLiveData()
+    var editResponse: MutableLiveData<Response<Unit>> = MutableLiveData()
+    var deleteResponse: MutableLiveData<Response<Unit>> = MutableLiveData()
+
 
     fun getAllUsers(){
         viewModelScope.launch{
@@ -34,18 +38,27 @@ class UserViewModel(private val repository: Repository): ViewModel() {
 
     fun editUser(user: User){
         viewModelScope.launch {
-            Log.d("EditUser","lanzando creacion de usuario")
-            val response : Response<Unit> = repository.createUser(user)
-            Log.d("EditUser","terminando creacion de usuario")
-            createResponse.value = response
+            Log.d("EditUser","lanzando edicion de usuario")
+            val response : Response<Unit> = repository.editUser(user)
+            Log.d("EditUser","terminando edicion de usuario")
+            editResponse.value = response
         }
     }
 
 
     fun getSingleUser(id: Int){
         viewModelScope.launch {
-            val response : User = repository.getSingleUser(id)
-            singleUser.value = response
+            val response : Response<User> = repository.getSingleUser(id)
+            if(response.code() == 200)
+                singleUser.value = response.body()
+            else
+                singleUser.value = User(0,"Error", Date())
+        }
+    }
+    fun deleteUser(id: Int){
+        viewModelScope.launch {
+            val response : Response<Unit> = repository.deleteUser(id)
+            deleteResponse.value = response
         }
     }
 

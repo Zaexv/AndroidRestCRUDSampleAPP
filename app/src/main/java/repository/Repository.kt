@@ -18,11 +18,16 @@ class Repository {
     }
 
     suspend fun editUser(user: User): Response<Unit> {
-        Log.d("Repository-Debug","Lanzando create user en Repository")
+        Log.d("Repository-Debug","Lanzando edit user en Repository")
         return RetrofitInstance.apiService.editUser(user)
     }
 
-    suspend fun getSingleUser(id: Int): User {
+    suspend fun deleteUser(id:Int): Response<Unit>{
+        Log.d("Repository-Debug", "Lanzando delete User en Repository")
+        return RetrofitInstance.apiService.deleteUser(id)
+    }
+
+    suspend fun getSingleUser(id: Int): Response<User>{
         return RetrofitInstance.apiService.getUser(id)
     }
 }
