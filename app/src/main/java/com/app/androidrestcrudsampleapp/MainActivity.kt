@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        /*
         val repository = Repository()
         val viewModelFactory = UserViewModelFactory(repository)
         userViewModel = ViewModelProvider(this,viewModelFactory).get(UserViewModel::class.java)
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("Response", response.toString())
         })
 
-
+*/
         setSupportActionBar(binding.toolbar)
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
