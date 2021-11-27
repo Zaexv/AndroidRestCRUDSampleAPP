@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.androidrestcrudsampleapp.databinding.FragmentFirstBinding
 import models.User
 import repository.Repository
@@ -20,6 +21,7 @@ class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
     private lateinit var userViewModel: UserViewModel
+    private lateinit var userAdapter: UserAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -47,7 +49,9 @@ class FirstFragment : Fragment() {
 
             userViewModel.usersList.observe(viewLifecycleOwner, { response ->
                 Log.d("ResponseList",response.toString())
-                binding.textviewFirst.text = response.toString()
+                userAdapter = UserAdapter(response)
+                binding.recyclerviewUser.layoutManager = LinearLayoutManager(requireContext())
+                binding.recyclerviewUser.adapter = userAdapter
             })
 
 
