@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.app.androidrestcrudsampleapp.databinding.FragmentSecondBinding
 import repository.Repository
@@ -41,11 +43,19 @@ class SecondFragment : Fragment() {
 
         userViewModel.getSingleUser(requireArguments().getInt("user_id"))
         userViewModel.singleUser.observe(viewLifecycleOwner, { response ->
-           // binding.textviewSecond.text = response.toString()
+           binding.textViewuserId.text = response.id.toString()
+            binding.textViewuserName.text = response.name
+            binding.textViewuserBirthday.text = response.birthDate.toString()
         })
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        binding.buttonDelete.setOnClickListener {
+            userViewModel.deleteUser(requireArguments().getInt("user_id"))
+            userViewModel.deleteResponse.observe(viewLifecycleOwner, {response ->
+                if(response.code() == 200) {
+                    Toast.makeText(context,R.string.user_deleted, Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+                }
+            })
         }
     }
 

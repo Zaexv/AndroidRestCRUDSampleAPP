@@ -6,22 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/fix_text_user_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_id"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/text_viewuser_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/loading" />
+
+        <TextView
+            android:id="@+id/fix_text_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/text_viewuser_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/loading" />
+
+        <TextView
+            android:id="@+id/fix_text_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/text_viewuser_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/loading" />
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button_second"
+        android:id="@+id/button_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#E53935"
+        android:gravity="center_vertical"
+        android:text="@string/delete"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
