@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.app.androidrestcrudsampleapp.databinding.FragmentSecondBinding
 import repository.Repository
+import utils.formatToViewDateTimeDefaults
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -45,7 +46,7 @@ class SecondFragment : Fragment() {
         userViewModel.singleUser.observe(viewLifecycleOwner, { response ->
            binding.textViewuserId.text = response.id.toString()
             binding.textViewuserName.text = response.name
-            binding.textViewuserBirthday.text = response.birthDate.toString()
+            binding.textViewuserBirthday.text = response.birthDate.formatToViewDateTimeDefaults()
         })
 
         binding.buttonDelete.setOnClickListener {

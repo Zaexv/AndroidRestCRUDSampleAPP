@@ -9,6 +9,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.app.androidrestcrudsampleapp.databinding.CardUserBinding
 import models.User
+import utils.formatToViewDateTimeDefaults
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UserAdapter(val users : List<User>): RecyclerView.Adapter<UserAdapter.UserHolder>() {
 
@@ -26,14 +29,17 @@ class UserAdapter(val users : List<User>): RecyclerView.Adapter<UserAdapter.User
     }
 
     class UserHolder(val binding: CardUserBinding):RecyclerView.ViewHolder(binding.root) {
+
         fun render(user:User){
             binding.textUserId.text = user.id.toString()
             binding.textUserName.text = user.name
-            binding.textUserBirthday.text = user.birthDate.toString()
+            binding.textUserBirthday.text = user.birthDate.formatToViewDateTimeDefaults()
             binding.root.setOnClickListener() {
                 val bundle = bundleOf("user_id" to user.id)
                 binding.root.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
             }
         }
     }
+
+
 }
