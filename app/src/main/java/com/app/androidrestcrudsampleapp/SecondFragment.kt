@@ -57,6 +57,10 @@ class SecondFragment : Fragment() {
                 }
             })
         }
+
+        binding.buttonEdit.setOnClickListener {
+            findNavController().navigate(R.id.action_edit_user)
+        }
     }
 
     override fun onDestroyView() {

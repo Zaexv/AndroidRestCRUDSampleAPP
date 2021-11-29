@@ -31,7 +31,6 @@ class UserAdapter(val users : List<User>): RecyclerView.Adapter<UserAdapter.User
             binding.textUserName.text = user.name
             binding.textUserBirthday.text = user.birthDate.toString()
             binding.root.setOnClickListener() {
-                Log.d("Navigate", "navegando usuerio")
                 val bundle = bundleOf("user_id" to user.id)
                 binding.root.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
             }

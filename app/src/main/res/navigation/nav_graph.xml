@@ -14,7 +14,11 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_create_user"
+            app:destination="@id/CreateUserFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.app.androidrestcrudsampleapp.SecondFragment"
@@ -24,5 +28,20 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_edit_user"
+            app:destination="@id/EditUserFragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/CreateUserFragment"
+        android:name="com.app.androidrestcrudsampleapp.EditUserFragment"
+        android:label="@string/create_user_fragment_label"
+        tools:layout="@layout/fragment_create_user"/>
+
+    <fragment
+        android:id="@+id/EditUserFragment"
+        android:name="com.app.androidrestcrudsampleapp.EditUserFragment"
+        android:label="@string/edit_user_fragment_label"
+        tools:layout="@layout/fragment_edit_user"/>
 </navigation>
