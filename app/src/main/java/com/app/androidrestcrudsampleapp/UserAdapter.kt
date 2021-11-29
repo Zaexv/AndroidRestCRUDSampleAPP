@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.app.androidrestcrudsampleapp.databinding.CardUserBinding
 import models.User
@@ -30,6 +32,8 @@ class UserAdapter(val users : List<User>): RecyclerView.Adapter<UserAdapter.User
             binding.textUserBirthday.text = user.birthDate.toString()
             binding.root.setOnClickListener() {
                 Log.d("Navigate", "navegando usuerio")
+                val bundle = bundleOf("user_id" to user.id)
+                binding.root.findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
             }
         }
     }
