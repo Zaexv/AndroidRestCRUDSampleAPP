@@ -5,10 +5,53 @@
     android:layout_height="match_parent"
     tools:context=".EditUserFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical"
+        android:paddingVertical="5dp">
+
+        <TextView
+            android:id="@+id/fix_text_edit_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <EditText
+            android:id="@+id/text_edit_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/user_name" />
+
+        <TextView
+            android:id="@+id/fix_text_edit_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <DatePicker
+            android:id="@+id/date_picker_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"/>
+
+        <Button
+            android:id="@+id/button_edit_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:backgroundTint="#FB8C00"
+            android:gravity="center_vertical"
+            android:text="@string/edit" />
+    </LinearLayout>
 
 </FrameLayout>

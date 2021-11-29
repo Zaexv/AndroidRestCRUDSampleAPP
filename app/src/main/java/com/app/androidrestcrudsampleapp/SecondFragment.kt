@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -44,9 +45,11 @@ class SecondFragment : Fragment() {
 
         userViewModel.getSingleUser(requireArguments().getInt("user_id"))
         userViewModel.singleUser.observe(viewLifecycleOwner, { response ->
-           binding.textViewuserId.text = response.id.toString()
+            binding.textViewuserId.text = response.id.toString()
             binding.textViewuserName.text = response.name
             binding.textViewuserBirthday.text = response.birthDate.formatToViewDateTimeDefaults()
+
+
         })
 
         binding.buttonDelete.setOnClickListener {
@@ -58,10 +61,17 @@ class SecondFragment : Fragment() {
                 }
             })
         }
-
         binding.buttonEdit.setOnClickListener {
-            findNavController().navigate(R.id.action_edit_user)
+            val bundle = bundleOf("id" to userViewModel.singleUser.value?.id,
+            "name" to userViewModel.singleUser.value?.name,
+            "birthday" to userViewModel.singleUser.value?.birthDate
+            )
+
+            findNavController().navigate(R.id.action_edit_user,bundle)
         }
+
+
+
     }
 
     override fun onDestroyView() {

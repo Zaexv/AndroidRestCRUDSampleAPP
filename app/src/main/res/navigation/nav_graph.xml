@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/CreateUserFragment"
-        android:name="com.app.androidrestcrudsampleapp.EditUserFragment"
+        android:name="com.app.androidrestcrudsampleapp.CreateUserFragment"
         android:label="@string/create_user_fragment_label"
         tools:layout="@layout/fragment_create_user"/>
 

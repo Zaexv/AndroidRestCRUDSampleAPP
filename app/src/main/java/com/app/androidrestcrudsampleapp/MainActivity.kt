@@ -66,9 +66,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            navController.navigate(R.id.action_create_user)
-        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

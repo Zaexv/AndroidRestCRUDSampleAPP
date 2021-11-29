@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.androidrestcrudsampleapp.databinding.FragmentFirstBinding
 import repository.Repository
@@ -48,6 +49,9 @@ class FirstFragment : Fragment() {
                 binding.recyclerviewUser.adapter = userAdapter
             })
 
+        binding.fab.setOnClickListener { view ->
+            findNavController().navigate(R.id.action_create_user)
+        }
 
     }
 

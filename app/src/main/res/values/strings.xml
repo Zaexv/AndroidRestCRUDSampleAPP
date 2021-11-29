@@ -20,4 +20,8 @@
     <string name="create_user_fragment_label">Create user</string>
     <string name="edit">Edit</string>
     <string name="edit_user_fragment_label">Edit User</string>
+    <string name="user_name">Username</string>
+    <string name="user_edited">The user has been succesfully edited.</string>
+    <string name="create">Create User</string>
+    <string name="please_add_username">Please fill the name</string>
 </resources>
