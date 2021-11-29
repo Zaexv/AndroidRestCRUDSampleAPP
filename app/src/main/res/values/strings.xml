@@ -24,4 +24,9 @@
     <string name="user_edited">The user has been succesfully edited.</string>
     <string name="create">Create User</string>
     <string name="please_add_username">Please fill the name</string>
+    <string name="user_created">The user has been succesfully created.</string>
+    <string name="delete_user">Delete User</string>
+    <string name="delete_user_message">"Are you sure you want to delete this user? "</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -35,7 +35,6 @@ class EditUserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("Edit-user","fragmento creato")
 
         val repository = Repository()
         val viewModelFactory = UserViewModelFactory(repository)
@@ -49,9 +48,11 @@ class EditUserFragment : Fragment() {
         calendar.setTime(birthDay)
         binding.datePickerBirthday.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
         binding.buttonEditAction.setOnClickListener{
-            calendar.set(binding.datePickerBirthday.year,
+            calendar.set(
+                binding.datePickerBirthday.year,
                 binding.datePickerBirthday.month,
-                binding.datePickerBirthday.dayOfMonth)
+                binding.datePickerBirthday.dayOfMonth
+            )
             birthDay = calendar.getTime()
 
             var name = binding.textEditUsername.text.toString()
